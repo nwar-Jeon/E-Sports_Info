@@ -3,14 +3,9 @@ package com.nwar.umjunsik.ui.fragment
 import android.os.Bundle
 import android.view.View
 import androidx.core.view.GravityCompat
-import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.NavigationUI
-import androidx.recyclerview.widget.LinearLayoutManager
-import com.nwar.umjunsik.MainActivity
 import com.nwar.umjunsik.R
 import com.nwar.umjunsik.databinding.FragmentNewsFeedBinding
-import com.nwar.umjunsik.extend.extendFunction.initAdapter
-import com.nwar.umjunsik.extend.extendProperty.baseAdapter
 import com.nwar.umjunsik.ui.adapter.NewsFeedAdapter
 import com.nwar.umjunsik.ui.base.BaseFragment
 import com.nwar.umjunsik.viewModel.viewModel.NewsFeedViewModel

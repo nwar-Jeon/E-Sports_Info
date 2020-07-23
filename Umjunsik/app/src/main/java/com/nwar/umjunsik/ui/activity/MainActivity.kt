@@ -1,7 +1,7 @@
-package com.nwar.umjunsik
+package com.nwar.umjunsik.ui.activity
 
 import android.os.Bundle
-import androidx.databinding.ObservableInt
+import com.nwar.umjunsik.R
 import com.nwar.umjunsik.databinding.ActivityMainBinding
 import com.nwar.umjunsik.ui.base.BaseActivity
 import com.nwar.umjunsik.viewModel.viewModel.MainActivityViewModel
