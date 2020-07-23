@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <declare-styleable name="CheckingButton">
+        <attr name="defaultText" format="string"/>
+        <attr name="failText" format="string"/>
+    </declare-styleable>
+
+    <declare-styleable name="ToggleImageView">
+        <attr name="clickedImage" format="reference"/>
+        <attr name="unClickedImage" format="reference"/>
+    </declare-styleable>
+</resources>

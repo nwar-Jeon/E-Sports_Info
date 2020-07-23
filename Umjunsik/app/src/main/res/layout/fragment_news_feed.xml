@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.nwar.umjunsik.viewModel.viewModel.NewsFeedViewModel" />
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout2"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="@color/backgroundLightColor"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/main_newsfeed_nav_drawer_btn"
+                android:layout_width="30dp"
+                android:layout_height="36dp"
+                android:layout_marginStart="16dp"
+                android:foreground="?android:attr/selectableItemBackground"
+                android:src="@drawable/ic_dehaze_black_24dp"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:text="뉴스피드"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/main_newsfeed_nav_drawer_btn"
+                app:layout_constraintStart_toEndOf="@+id/main_newsfeed_nav_drawer_btn"
+                app:layout_constraintTop_toTopOf="@+id/main_newsfeed_nav_drawer_btn" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <androidx.drawerlayout.widget.DrawerLayout
+            android:id="@+id/newsfeed_drawerlayout"
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout2">
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/main_newsfeed_recycler_view"
+                bindItem="@{vm.newsFeedList}"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                tools:listitem="@layout/item_newsfeed" />
+
+            <com.google.android.material.navigation.NavigationView
+                android:id="@+id/newsfeed_navigation_drawer"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_gravity="start"
+                android:background="@color/backgroundLightColor"
+                android:fitsSystemWindows="true"
+                app:headerLayout="@layout/navigation_header"
+                app:itemTextColor="@android:color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:menu="@menu/menu_navigation_drawer" />
+        </androidx.drawerlayout.widget.DrawerLayout>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

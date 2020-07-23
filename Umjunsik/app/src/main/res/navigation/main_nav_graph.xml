@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_nav_graph"
+    app:startDestination="@id/main_schedule_btn">
+
+    <fragment
+        tools:layout="@layout/fragment_game_high_light"
+        android:id="@+id/main_highlight_btn"
+        android:name="com.nwar.umjunsik.ui.fragment.GameHighLightFragment"
+        android:label="GameHighLightFragment" />
+    <fragment
+        tools:layout="@layout/fragment_game_schedule"
+        android:id="@+id/main_schedule_btn"
+        android:name="com.nwar.umjunsik.ui.fragment.GameScheduleFragment"
+        android:label="GameScheduleFragment" />
+    <fragment
+        tools:layout="@layout/fragment_game_live"
+        android:id="@+id/main_live_btn"
+        android:name="com.nwar.umjunsik.ui.fragment.GameLiveFragment"
+        android:label="GameLiveFragment" />
+    <fragment
+        tools:layout="@layout/fragment_news_feed"
+        android:id="@+id/main_newsfeed_btn"
+        android:name="com.nwar.umjunsik.ui.fragment.NewsFeedFragment"
+        android:label="NewsFeedFragment" >
+    </fragment>
+</navigation>

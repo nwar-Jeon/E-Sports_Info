@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:icon="@drawable/ic_event_black_24dp" android:title="일정" app:showAsAction="ifRoom" android:id="@+id/main_schedule_btn"/>
+    <item android:icon="@drawable/ic_access_time_black_24dp" android:title="라이브" app:showAsAction="ifRoom" android:id="@+id/main_live_btn"/>
+    <item android:icon="@drawable/ic_history_black_24dp" android:title="하이라이트" app:showAsAction="ifRoom" android:id="@+id/main_highlight_btn"/>
+    <item android:icon="@drawable/ic_account_circle_black_24dp" android:title="팀 소식" app:showAsAction="ifRoom" android:id="@+id/main_newsfeed_btn"/>
+</menu>

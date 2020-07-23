@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:title="닉네임 변경" android:id="@+id/newsfeed_change_nickname_btn"/>
+
+    <item android:title="팀 팔로우 하기" android:id="@+id/newsfeed_follow_team_btn"/>
+
+</menu>

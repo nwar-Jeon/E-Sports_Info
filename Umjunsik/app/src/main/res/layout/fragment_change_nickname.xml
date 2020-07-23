@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.nwar.umjunsik.viewModel.viewModel.ChangeNicknameViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".ui.fragment.ChangeNicknameFragment">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView5"
+        android:layout_width="36dp"
+        android:layout_height="36dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="12dp"
+        android:foreground="?android:attr/selectableItemBackground"
+        android:clickable="true"
+        android:src="@drawable/ic_arrow_back_black_24dp"
+        android:onClick="@{(v)->vm.requireBackNavigate()}"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:text="닉네임 변경"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView5"
+        app:layout_constraintStart_toEndOf="@+id/appCompatImageView5"
+        app:layout_constraintTop_toTopOf="@+id/appCompatImageView5" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView19"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="150dp"
+        android:text="현재 닉네임"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView20"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="64dp"
+        android:text="현재 닉네임"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView19"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView21" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView21"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:text="@{vm.currentNickname}"
+        android:textColor="@android:color/white"
+        android:textSize="28sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView19" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/appCompatTextView22"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="32dp"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@android:color/darker_gray"
+        android:hint="변경할 닉네임을 입력해주세요"
+        android:singleLine="true"
+        android:gravity="center"
+        android:text="@={vm.inputNickname}"
+        android:textColorHint="@android:color/darker_gray"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView20" />
+
+    <com.nwar.umjunsik.customView.CheckingButton
+        android:layout_width="0dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="48dp"
+        app:defaultText="중복 확인"
+        app:failText="중복된 닉네임"
+        checked="@{vm.isDuplicateNickname}"
+        android:onClick="@{()->vm.requireCheckDuplicateNickname()}"
+        app:layout_constraintEnd_toEndOf="@+id/appCompatTextView22"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView22"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView22" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

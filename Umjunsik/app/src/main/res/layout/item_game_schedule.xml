@@ -1,0 +1,239 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <data>
+        <variable
+            name="vm"
+            type="com.nwar.umjunsik.viewModel.viewModel.GameScheduleViewModel" />
+        <variable
+            name="position"
+            type="Integer" />
+        <import type="com.nwar.umjunsik.util.DataBindingUtilKt"/>
+        <import type="androidx.databinding.ObservableArrayList"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraintLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="2dp"
+            android:background="#3E3D40"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent">
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView2"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                android:layout_marginTop="32dp"
+                imageUrl="@{vm.scheduleList.get(position).blueTeam.logo}"
+                tools:src="@drawable/logo"
+                app:layout_constraintEnd_toStartOf="@+id/appCompatTextView5"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{vm.scheduleList.get(position).blueTeam.name}"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView2"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageView2"
+                tools:text="T1" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView5"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="VS"
+                android:textColor="@android:color/white"
+                android:textSize="24sp"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+                app:layout_constraintEnd_toStartOf="@+id/appCompatImageView"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/appCompatImageView2"
+                app:layout_constraintTop_toTopOf="@+id/appCompatImageView2"
+                app:layout_constraintVertical_bias="0.557" />
+
+            <androidx.appcompat.widget.AppCompatImageView
+                android:id="@+id/appCompatImageView"
+                android:layout_width="80dp"
+                android:layout_height="80dp"
+                imageUrl="@{vm.scheduleList.get(position).redTeam.logo}"
+                tools:src="@drawable/logo"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView2"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.5"
+                app:layout_constraintStart_toEndOf="@+id/appCompatTextView5"
+                app:layout_constraintTop_toTopOf="@+id/appCompatImageView2" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:text="@{vm.scheduleList.get(position).redTeam.name}"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageView"
+                tools:text="Rox Tigers" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="16dp"
+                android:text="@{DataBindingUtilKt.getBlueTeamVotePercentageFromSchedule(vm.scheduleList.get(position))}"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView2"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView2"
+                tools:text="50%" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView7"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="이 팀이 이길 것 같아"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView3"
+                app:layout_constraintEnd_toStartOf="@+id/appCompatTextView6"
+                app:layout_constraintStart_toEndOf="@+id/appCompatTextView3"
+                app:layout_constraintTop_toTopOf="@+id/appCompatTextView3" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView6"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@{DataBindingUtilKt.getRedTeamVotePercentageFromSchedule(vm.scheduleList.get(position))}"
+                android:textColor="@android:color/white"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView"
+                app:layout_constraintTop_toTopOf="@+id/appCompatTextView7"
+                tools:text="50%" />
+
+            <ProgressBar
+                android:id="@+id/view"
+                style="@style/Widget.AppCompat.ProgressBar.Horizontal"
+                android:layout_width="0dp"
+                android:layout_height="24dp"
+                android:layout_marginTop="16dp"
+                android:progress="@{DataBindingUtilKt.getBlueTeamVotePercentageFromScheduleAsInt(vm.scheduleList.get(position))}"
+                android:progressDrawable="@drawable/bg_survey_state"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatImageView"
+                app:layout_constraintStart_toStartOf="@+id/appCompatImageView2"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView7"
+                tools:progress="50" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatImageView10"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:layout_marginTop="16dp"
+                android:drawableTop="@drawable/ic_vote"
+                android:textColor="@android:color/white"
+                android:drawablePadding="8dp"
+                android:textSize="12sp"
+                android:text="@{DataBindingUtilKt.getVoteBlueTeamString(vm.scheduleList.get(position))}"
+                android:onClick="@{(v)->vm.requireVoteBlueTeam(position)}"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                tools:text="Skt t1에 투표하기"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatTextView2"
+                app:layout_constraintStart_toStartOf="@+id/appCompatTextView2"
+                app:layout_constraintTop_toBottomOf="@+id/view" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatImageView12"
+                android:layout_width="wrap_content"
+                android:layout_height="52dp"
+                android:drawableTop="@drawable/ic_vote"
+                android:textColor="@android:color/white"
+                android:drawablePadding="8dp"
+                android:textSize="12sp"
+                android:text="@{DataBindingUtilKt.getVoteRedTeamString(vm.scheduleList.get(position))}"
+                android:onClick="@{(v)->vm.requireVoteRedTeam(position)}"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                tools:text="Skt t1에 투표하기"
+                app:layout_constraintEnd_toEndOf="@+id/appCompatTextView4"
+                app:layout_constraintStart_toStartOf="@+id/appCompatTextView4"
+                app:layout_constraintTop_toTopOf="@+id/appCompatImageView10" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="32dp"
+                android:layout_marginTop="16dp"
+                android:text="@{DataBindingUtilKt.getDateFormat(vm.scheduleList.get(position))}"
+                android:textColor="@android:color/white"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatImageView10"
+                tools:text="2020년 12월 16일 18시 20분" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/appCompatTextView9"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:layout_marginBottom="16dp"
+                android:text="@{vm.scheduleList.get(position).place}"
+                android:textColor="@android:color/white"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintStart_toStartOf="@+id/appCompatTextView8"
+                app:layout_constraintTop_toBottomOf="@+id/appCompatTextView8"
+                tools:text="ㅋㅋㄹㅋㅋ" />
+
+            <androidx.appcompat.widget.AppCompatTextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@{DataBindingUtilKt.likeCountToString(vm.scheduleList.get(position).like)}"
+                android:textColor="@android:color/white"
+                android:textSize="12sp"
+                tools:text="4000000명이 기대 중!"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView3"
+                app:layout_constraintEnd_toStartOf="@+id/appCompatImageView3"
+                app:layout_constraintTop_toTopOf="@+id/appCompatImageView3" />
+
+            <com.nwar.umjunsik.customView.ToggleImageView
+                android:id="@+id/appCompatImageView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="24dp"
+                android:onClick="@{(v)->vm.requireLikeClick(position)}"
+                toggle="@{vm.scheduleList.get(position).isLiked}"
+                android:foreground="?android:attr/selectableItemBackgroundBorderless"
+                app:clickedImage="@drawable/ic_favorite_black_24dp"
+                app:unClickedImage="@drawable/ic_favorite_border_black_24dp"
+                app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView9"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="@+id/appCompatTextView9" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@android:color/darker_gray"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/constraintLayout" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

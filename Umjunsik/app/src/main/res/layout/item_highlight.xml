@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.nwar.umjunsik.viewModel.viewModel.GameHighLightViewModel" />
+        <variable
+            name="position"
+            type="Integer" />
+        <import type="com.nwar.umjunsik.util.DataBindingUtilKt"/>
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:foreground="?android:attr/selectableItemBackground"
+    android:onClick="@{(v)->vm.requirePlayVideo(position)}"
+    tools:background="@color/backgroundLightColor">
+
+    <androidx.appcompat.widget.AppCompatImageView
+        android:id="@+id/appCompatImageView11"
+        imageUrl="@{vm.highlightList.get(position).thumbNail}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:layout_marginEnd="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:src="@drawable/logo" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView31"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@android:color/black"
+        android:paddingHorizontal="6dp"
+        android:text="@{vm.highlightList.get(position).videoLength}"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatImageView11"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:text="9:32" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView28"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="@{vm.highlightList.get(position).videoTitle}"
+        android:textColor="@android:color/white"
+        android:textSize="18sp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatImageView11"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatImageView11"
+        tools:text="행복했꿀벌 | DRX vs APK H/L 04.16" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView29"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="@{vm.highlightList.get(position).gameDate}"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView28"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView28"
+        tools:text="2019년 12월 16일 리오넬 메시 50분" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView30"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:text="@{vm.highlightList.get(position).place}"
+        android:textColor="@android:color/white"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView29"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView29"
+        tools:text="에미레이츠 스타디" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="16dp"
+        android:text="@{DataBindingUtilKt.likeCountToString(vm.highlightList.get(position).likeCount)}"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/toggleImageView2"
+        app:layout_constraintEnd_toStartOf="@+id/toggleImageView2"
+        tools:text="4,000,000명이 감동!" />
+
+    <com.nwar.umjunsik.customView.ToggleImageView
+        android:id="@+id/toggleImageView2"
+        toggle="@{vm.highlightList.get(position).liked}"
+        android:layout_width="24dp"
+        android:layout_height="24dp"
+        android:layout_marginEnd="8dp"
+        android:onClick="@{(v)->vm.requireLickClick(position)}"
+        app:clickedImage="@drawable/ic_favorite_black_24dp"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatTextView30"
+        app:layout_constraintEnd_toEndOf="@+id/appCompatImageView11"
+        app:layout_constraintTop_toTopOf="@+id/appCompatTextView30"
+        app:unClickedImage="@drawable/ic_favorite_border_black_24dp" />
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.8dp"
+        android:layout_marginTop="32dp"
+        android:background="@android:color/darker_gray"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView32" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

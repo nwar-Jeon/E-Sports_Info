@@ -1,0 +1,174 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+        <variable
+            name="vm"
+            type="com.nwar.umjunsik.viewModel.viewModel.SignupViewModel" />
+    </data>
+<androidx.constraintlayout.widget.ConstraintLayout
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/backgroundColor"
+    tools:context=".ui.fragment.SignupFragment">
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="96dp"
+        android:text="회원가입"
+        android:textColor="@android:color/white"
+        android:textSize="30sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="56dp"
+        android:text="아이디"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView13"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView13" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/appCompatEditText3"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@android:color/white"
+        android:textSize="20sp"
+        android:text="@={vm.id}"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@+id/checkingButton2"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView14"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView14" />
+
+    <com.nwar.umjunsik.customView.CheckingButton
+        android:id="@+id/checkingButton2"
+        checked="@{vm.isDuplicateId()}"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="@{(v)->vm.checkDuplicateId()}"
+        app:defaultText="중복 확인"
+        app:failText="중복"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatEditText3"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appCompatEditText3"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="비밀번호"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView13"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatEditText3" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/appCompatEditText4"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="32dp"
+        android:backgroundTint="@android:color/white"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:text="@={vm.password}"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView15"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView15" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView16"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="비밀번호 확인"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView13"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatEditText4" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/appCompatEditText5"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:backgroundTint="@android:color/white"
+        android:textColor="@android:color/white"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        android:text="@={vm.passwordChecking}"
+        app:layout_constraintEnd_toEndOf="@+id/appCompatEditText4"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView16"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView16" />
+
+    <androidx.appcompat.widget.AppCompatTextView
+        android:id="@+id/appCompatTextView17"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="닉네임"
+        android:textColor="@android:color/white"
+        android:textSize="24sp"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView13"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatEditText5" />
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/appCompatEditText7"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:backgroundTint="@android:color/white"
+        android:textSize="20sp"
+        android:text="@={vm.nickName}"
+        android:textColor="@android:color/white"
+        app:layout_constraintEnd_toStartOf="@+id/checkingButton3"
+        app:layout_constraintStart_toStartOf="@+id/appCompatTextView17"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatTextView17" />
+
+    <com.nwar.umjunsik.customView.CheckingButton
+        android:id="@+id/checkingButton3"
+        checked="@{vm.isDuplicateNickName}"
+        android:layout_width="80dp"
+        android:layout_height="0dp"
+        android:layout_marginTop="4dp"
+        android:layout_marginEnd="32dp"
+        android:layout_marginBottom="4dp"
+        android:onClick="@{(v)->vm.checkDuplicateNickName()}"
+        app:defaultText="중복 확인"
+        app:failText="중복"
+        app:layout_constraintBottom_toBottomOf="@+id/appCompatEditText7"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/appCompatEditText7"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <com.nwar.umjunsik.customView.CheckingButton
+        android:id="@+id/checkingButton10"
+        checked="@{vm.isSignUp}"
+        android:layout_width="match_parent"
+        android:layout_height="48dp"
+        android:layout_marginStart="64dp"
+        android:layout_marginEnd="64dp"
+        android:onClick="@{(v)->vm.requestSignUp()}"
+        app:defaultText="회원가입"
+        app:failText="문제가 발생했습니다."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/appCompatEditText7"
+        app:layout_constraintVertical_bias="0.45" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
