@@ -12,7 +12,7 @@ data class GameSchedule(
     val redTeam : Team,
     var voteBlueTeam : Int,
     var voteRedTeam : Int,
-    val time : Long,
+    val time : String,
     val place : String,
     var like : Int,
     var isLiked : Boolean

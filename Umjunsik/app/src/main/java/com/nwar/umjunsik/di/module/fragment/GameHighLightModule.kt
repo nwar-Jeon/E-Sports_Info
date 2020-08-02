@@ -1,6 +1,8 @@
 package com.nwar.umjunsik.di.module.fragment
 
 import androidx.lifecycle.ViewModelProviders
+import com.nwar.domain.repository.LikeItemRepository
+import com.nwar.domain.repository.LoadListRepository
 import com.nwar.domain.useCase.LikeHighLightUseCase
 import com.nwar.domain.useCase.LoadHighLightListUseCase
 import com.nwar.umjunsik.ui.fragment.GameHighLightFragment
@@ -19,8 +21,8 @@ class GameHighLightModule {
     fun factory(likeHighLightUseCase: LikeHighLightUseCase, loadHighLightListUseCase: LoadHighLightListUseCase) = GameHighLightViewModelFactory(likeHighLightUseCase, loadHighLightListUseCase)
 
     @Provides
-    fun likeHighLightUseCase(mainScheduler: Scheduler) = LikeHighLightUseCase(mainScheduler)
+    fun likeHighLightUseCase(mainScheduler: Scheduler, likeItemRepository: LikeItemRepository) = LikeHighLightUseCase(mainScheduler, likeItemRepository)
 
     @Provides
-    fun loadHighLightListUseCase(mainScheduler: Scheduler) = LoadHighLightListUseCase(mainScheduler)
+    fun loadHighLightListUseCase(mainScheduler: Scheduler, loadListRepository: LoadListRepository) = LoadHighLightListUseCase(mainScheduler, loadListRepository)
 }

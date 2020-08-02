@@ -1,2 +1,4 @@
+include ':di'
+include ':data'
 include ':app', ':domain', ':api', ':local'
 rootProject.name='Umjunsik'

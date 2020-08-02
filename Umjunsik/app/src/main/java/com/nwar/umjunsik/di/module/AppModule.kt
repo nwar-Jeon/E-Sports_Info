@@ -1,6 +1,8 @@
 package com.nwar.umjunsik.di.module
 
 import android.content.Context
+import com.nwar.data.builder.API
+import com.nwar.data.builder.createRetrofit
 import com.nwar.umjunsik.di.application.BaseApplication
 import dagger.Module
 import dagger.Provides
@@ -18,7 +20,11 @@ class AppModule() {
     @Singleton
     fun context(app : BaseApplication) = app as Context
 
-    @Provides
     @Singleton
+    @Provides
     fun mainSchedule() : Scheduler = AndroidSchedulers.mainThread()
+
+    @Singleton
+    @Provides
+    fun api() : API = createRetrofit(API::class.java)
 }

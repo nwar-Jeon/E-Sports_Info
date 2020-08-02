@@ -10,5 +10,5 @@ interface LikeItemRepository {
 
     fun likeMatchByGameSchedule(data : GameSchedule) : Flowable<GameSchedule>
 
-    fun likeNewsFeedByNewsFeed(data : NewsFeed) : Flowable<GameSchedule>
+    fun likeNewsFeedByNewsFeed(data : NewsFeed) : Flowable<NewsFeed>
 }

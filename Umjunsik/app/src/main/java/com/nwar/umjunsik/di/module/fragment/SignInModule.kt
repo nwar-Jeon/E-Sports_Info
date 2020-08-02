@@ -1,6 +1,7 @@
 package com.nwar.umjunsik.di.module.fragment
 
 import androidx.lifecycle.ViewModelProviders
+import com.nwar.domain.repository.AccountRepository
 import com.nwar.domain.useCase.SignInUseCase
 import com.nwar.umjunsik.ui.fragment.SigninFragment
 import com.nwar.umjunsik.viewModel.factory.SignInViewModelFactory
@@ -18,5 +19,5 @@ class SignInModule() {
     fun factory(signInUseCase : SignInUseCase) = SignInViewModelFactory(signInUseCase)
 
     @Provides
-    fun signInUseCase(mainScheduler: Scheduler) = SignInUseCase(mainScheduler)
+    fun signInUseCase(mainScheduler: Scheduler, accountRepository: AccountRepository) = SignInUseCase(mainScheduler, accountRepository)
 }

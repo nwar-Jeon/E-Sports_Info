@@ -8,3 +8,8 @@ fun <T> Flowable<T>.exceptionRequestResult() : Flowable<T> {
     this.doOnError { RequestResult.failure<T>(it) }
     return this
 }
+
+fun <T>Flowable<T>.toRequestResult() : Flowable<RequestResult<T>> {
+    return this.map { RequestResult.success(it) }
+        .doOnError { RequestResult.failure<T>(it) }
+}

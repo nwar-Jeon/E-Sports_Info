@@ -1,5 +1,6 @@
 package com.nwar.domain.useCase
 
+import com.nwar.domain.extend.extendFunction.toRequestResult
 import com.nwar.domain.util.RequestResult
 import io.reactivex.rxjava3.core.Flowable
 import io.reactivex.rxjava3.core.Scheduler
@@ -12,10 +13,11 @@ abstract class UseCase<T, R>(val mainThread : Scheduler) {
 
     var disposable = CompositeDisposable()
 
-    abstract fun requestWithData(data : T) : Flowable<RequestResult<R>>
+    abstract fun requestWithData(data : T) : Flowable<R>
 
     fun excute(data : T, observer: DisposableSubscriber<RequestResult<R>>) {
         val flowable = requestWithData(data)
+            .toRequestResult()
             .subscribeOn(Schedulers.io())
             .observeOn(mainThread)
             .subscribeWith(observer)

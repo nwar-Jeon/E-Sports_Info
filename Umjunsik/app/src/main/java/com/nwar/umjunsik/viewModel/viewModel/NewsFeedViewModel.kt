@@ -2,10 +2,8 @@ package com.nwar.umjunsik.viewModel.viewModel
 
 import androidx.databinding.ObservableField
 import androidx.lifecycle.MutableLiveData
-import com.nwar.domain.dummyData.getNewsFeedList
 import com.nwar.domain.entity.NewsFeed
 import com.nwar.domain.useCase.LikeNewsFeedUseCase
-import com.nwar.domain.useCase.LoadGameScheduleListUseCase
 import com.nwar.domain.useCase.LoadNewsFeedListUseCase
 import com.nwar.umjunsik.extend.extendFunction.*
 import com.nwar.umjunsik.ui.base.BaseViewModel

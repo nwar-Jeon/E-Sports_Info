@@ -10,7 +10,7 @@ fun getBlueTeamVotePercentageFromScheduleAsInt(schedule: GameSchedule) = schedul
 
 fun likeCountToString(count : Int) = "${count}명이 기대 중!"
 
-fun getDateFormat(schedule : GameSchedule) = schedule.timeFormat()
+fun getDateFormat(schedule : GameSchedule) = schedule.time
 
 fun getVoteBlueTeamString(schedule: GameSchedule) = "${schedule.blueTeam.name}에 투표하기"
 

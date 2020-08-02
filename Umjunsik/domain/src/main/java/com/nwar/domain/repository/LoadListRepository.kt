@@ -8,11 +8,11 @@ import com.nwar.domain.util.RequestResult
 import io.reactivex.rxjava3.core.Flowable
 
 interface LoadListRepository {
-    fun loadGameScheduleList() : Flowable<RequestResult<GameSchedule>>
+    fun loadGameScheduleList() : Flowable<GameSchedule>
 
-    fun loadHighLightList() : Flowable<RequestResult<HighLight>>
+    fun loadHighLightList(searchText : String) : Flowable<HighLight>
 
-    fun loadNewsFeedList() : Flowable<RequestResult<NewsFeed>>
+    fun loadNewsFeedList() : Flowable<NewsFeed>
 
-    fun loadFollowingTeamList() : Flowable<RequestResult<FollowTeam>>
+    fun loadFollowingTeamList() : Flowable<FollowTeam>
 }

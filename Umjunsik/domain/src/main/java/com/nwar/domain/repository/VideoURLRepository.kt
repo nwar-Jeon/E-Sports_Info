@@ -4,5 +4,10 @@ import com.nwar.domain.util.RequestResult
 import io.reactivex.rxjava3.core.Flowable
 
 interface VideoURLRepository {
-    fun requireVideoURL() : Flowable<RequestResult<String>>
+
+    fun clearCache() : Flowable<Unit>
+
+    fun requireVideoURL() : Flowable<String>
+
+    fun saveVideoURLToCache(url : String) : Flowable<Unit>
 }

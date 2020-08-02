@@ -1,4 +1,4 @@
-package com.nwar.api.model
+package com.nwar.data.model
 
 import com.google.gson.annotations.SerializedName
 

@@ -1,6 +1,8 @@
 package com.nwar.umjunsik.di.module.fragment
 
 import androidx.lifecycle.ViewModelProviders
+import com.nwar.domain.repository.AccountRepository
+import com.nwar.domain.repository.CheckDuplicateRepository
 import com.nwar.domain.useCase.CheckDuplicateIdUseCase
 import com.nwar.domain.useCase.CheckDuplicateNicknameUseCase
 import com.nwar.domain.useCase.SignUpUseCase
@@ -29,11 +31,11 @@ class SignUpModule() {
     )
 
     @Provides
-    fun checkDuplIdUseCase(scheduler: Scheduler) = CheckDuplicateIdUseCase(scheduler)
+    fun checkDuplIdUseCase(scheduler: Scheduler, checkDuplicateRepository: CheckDuplicateRepository) = CheckDuplicateIdUseCase(scheduler, checkDuplicateRepository)
 
     @Provides
-    fun checkDuplNicknameUseCase(scheduler: Scheduler) = CheckDuplicateNicknameUseCase(scheduler)
+    fun checkDuplNicknameUseCase(scheduler: Scheduler, checkDuplicateRepository: CheckDuplicateRepository) = CheckDuplicateNicknameUseCase(scheduler, checkDuplicateRepository)
 
     @Provides
-    fun signUpUseCase(scheduler: Scheduler) = SignUpUseCase(scheduler)
+    fun signUpUseCase(scheduler: Scheduler, accountRepository: AccountRepository) = SignUpUseCase(scheduler, accountRepository)
 }

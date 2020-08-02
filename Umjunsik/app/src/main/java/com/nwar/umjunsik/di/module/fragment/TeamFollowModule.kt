@@ -1,6 +1,7 @@
 package com.nwar.umjunsik.di.module.fragment
 
 import androidx.lifecycle.ViewModelProviders
+import com.nwar.domain.repository.LoadListRepository
 import com.nwar.domain.useCase.LoadTeamListForFollowUseCase
 import com.nwar.umjunsik.ui.fragment.TeamFollowFragment
 import com.nwar.umjunsik.viewModel.factory.TeamFollowViewModelFactory
@@ -18,5 +19,5 @@ class TeamFollowModule() {
     fun factory(useCase : LoadTeamListForFollowUseCase) : TeamFollowViewModelFactory = TeamFollowViewModelFactory(useCase)
 
     @Provides
-    fun loadTeamListForFollowUseCase(mainScheduler : Scheduler) = LoadTeamListForFollowUseCase(mainScheduler)
+    fun loadTeamListForFollowUseCase(mainScheduler : Scheduler, loadListRepository: LoadListRepository) = LoadTeamListForFollowUseCase(mainScheduler, loadListRepository)
 }

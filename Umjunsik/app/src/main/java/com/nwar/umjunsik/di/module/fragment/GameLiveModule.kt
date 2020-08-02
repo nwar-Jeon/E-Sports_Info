@@ -1,6 +1,7 @@
 package com.nwar.umjunsik.di.module.fragment
 
 import androidx.lifecycle.ViewModelProviders
+import com.nwar.domain.repository.VideoURLRepository
 import com.nwar.domain.useCase.LoadVideoURLUseCase
 import com.nwar.umjunsik.ui.fragment.GameLiveFragment
 import com.nwar.umjunsik.viewModel.factory.GameLiveViewModelFactory
@@ -18,5 +19,5 @@ class GameLiveModule() {
     fun factory(loadVideoURLUseCase: LoadVideoURLUseCase) = GameLiveViewModelFactory(loadVideoURLUseCase)
 
     @Provides
-    fun loadVideoURLUseCase(mainScheduler: Scheduler) = LoadVideoURLUseCase(mainScheduler)
+    fun loadVideoURLUseCase(mainScheduler: Scheduler, videoURLRepository: VideoURLRepository) = LoadVideoURLUseCase(mainScheduler, videoURLRepository)
 }

@@ -1,6 +1,7 @@
 package com.nwar.umjunsik.di.module.fragment
 
 import androidx.lifecycle.ViewModelProviders
+import com.nwar.domain.repository.CheckDuplicateRepository
 import com.nwar.domain.useCase.CheckDuplicateNicknameUseCase
 import com.nwar.umjunsik.ui.fragment.ChangeNicknameFragment
 import com.nwar.umjunsik.viewModel.factory.ChangeNicknameViewModelFactory
@@ -19,5 +20,5 @@ class ChangeNicknameModule() {
     fun provideFactory(useCase : CheckDuplicateNicknameUseCase) : ChangeNicknameViewModelFactory = ChangeNicknameViewModelFactory(useCase)
 
     @Provides
-    fun checkDuplNicknameUseCase(scheduler: Scheduler) = CheckDuplicateNicknameUseCase(scheduler)
+    fun checkDuplNicknameUseCase(scheduler: Scheduler, checkDuplicateRepository: CheckDuplicateRepository) = CheckDuplicateNicknameUseCase(scheduler, checkDuplicateRepository)
 }

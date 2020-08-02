@@ -4,7 +4,7 @@ import com.nwar.domain.util.RequestResult
 import io.reactivex.rxjava3.core.Flowable
 
 interface CheckDuplicateRepository {
-    fun checkDuplicateById(id : String) : Flowable<RequestResult<Boolean>>
+    fun checkDuplicateById(id : String) : Flowable<Boolean>
 
-    fun checkDuplicateByNickname(nickName : String) : Flowable<RequestResult<Boolean>>
+    fun checkDuplicateByNickname(nickName : String) : Flowable<Boolean>
 }

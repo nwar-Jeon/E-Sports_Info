@@ -6,6 +6,7 @@ import androidx.core.view.GravityCompat
 import androidx.navigation.ui.NavigationUI
 import com.nwar.umjunsik.R
 import com.nwar.umjunsik.databinding.FragmentNewsFeedBinding
+import com.nwar.umjunsik.extend.extendProperty.baseAdapter
 import com.nwar.umjunsik.ui.adapter.NewsFeedAdapter
 import com.nwar.umjunsik.ui.base.BaseFragment
 import com.nwar.umjunsik.viewModel.viewModel.NewsFeedViewModel
